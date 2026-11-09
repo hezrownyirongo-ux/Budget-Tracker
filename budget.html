@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smart Budget Tracker</title>
+<link rel="stylesheet" href="Budget Tracker.css .css"> 
+
+</head>
+<body>
+<header>
+  <div>SMART BUDGET TRACKER
+  </div>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="budget.html#budgets">Budgets</a>
+    <a href="budget.html#add-budget">New Budget</a>
+    <a href="expenses.html#add-expense">Add Expense</a>
+    <a href="Login.html#login">Login</a>
+  </nav>
+</header>
+<main>
+
+
+
+<!-- BUDGET -->
+<section class="view" id="budgets">
+  <h1>My Budgets</h1>
+  <div class="card">
+    <input type="search" placeholder="Search budgets by name…" aria-label="Search budgets">
+    <div class="seseleka">
+      <table>
+        <tr><th>Name</th>
+        <th>Purpose</th>
+        <th>Total (MWK)</th>
+        <th>Spent (MWK)</th>
+        <th>Remaining (MWK)</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>Groceries</td>
+        <td>Food</td>
+        <td>80,000</td>
+        <td>32,000</td>
+        <td>48,000</td>
+        <td>Active (40%)</td>
+        <td>
+          <a class="btn wona" href="#budget-details">View</a>
+          <a class="btn sitha" href="#edit-budget">Edit</a>
+          <a class="btn chotsa" href="#budgets">Delete</a>
+        </td>
+        
+      </tr>
+      <tr>
+        <td>School Expenses</td>
+        <td>School</td>
+        <td>110,000</td>
+        <td>60,500</td>
+        <td>49,500</td>
+        <td>Warning (55%)</td>
+        <td>
+          <a class="btn wona" href="#budget-details">View</a>
+          <a class="btn sitha" href="#edit-budget">Edit</a>
+          <a class="btn chotsa" href="#budgets">Delete</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Transport</td>
+        <td>Transport</td>
+        <td>50,000</td>
+        <td>40,000</td>
+        <td>10,000</td>
+        <td>Warning (80%)</td>
+        <td>
+          <a class="btn wona" href="#budget-details">View</a>
+          <a class="btn sitha" href="#edit-budget">Edit</a>
+          <a class="btn chotsa" href="#budgets">Delete</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Personal Allowance</td>
+        <td>Personal</td>
+        <td>40,000</td>
+        <td>36,800</td>
+        <td>3,200</td>
+        <td>Critical (92%)</td>
+        <td>
+          
+          <a class="btn wona" href="#budget-details">View</a>
+          <a class="btn sitha" href="#edit-budget">Edit</a>
+          <a class="btn chotsa" href="#budgets">Delete</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Shopping Trip</td>
+        <td>Shopping</td>
+        <td>60,000</td>
+        <td>60,000</td>
+        <td>0</td>
+        <td class="ex">Exhausted</td>
+        <td>
+          <a class="btn wona" href="#budget-details">View</a>
+          <a class="btn sitha" href="#edit-budget">Edit</a>
+          <a class="btn chotsa" href="#budgets">Delete</a>
+        </td>
+      </tr>
+    </table></div>
+    <a class="btn" href="#add-budget">+ New Budget</a>
+  </div>
+</section>
+
+<!-- ADD BUDGET -->
+<section class="view" id="add-budget">
+  <h1>New Budget</h1>
+  <div class="card">
+    <form action="#budgets">
+    <label for="bn">Budget name</label><input id="bn" type="text" placeholder="e.g. Town Shopping" required>
+    <label for="bp">Purpose</label>
+    <select id="bp">
+      <option>Monthly expenses</option>
+      <option>Shopping</option>
+      <option>Groceries</option>
+      <option>Transport</option>
+      <option>School expenses</option>
+      <option>Personal allowance</option>
+    </select>
+    <div class="two">
+      <div><label for="bt">Total amount (MWK)</label>
+        <input id="bt" type="number" min="0" placeholder="60000"></div>
+      <div>
+        <label for="bs">Start date</label>
+        <input id="bs" type="date"></div>
+    </div>
+    <label for="bno">Notes</label>
+    <textarea id="bno" rows="3" placeholder="Optional notes">      
+    </textarea>
+    <a class="btn" href="#budgets">Save Budget</a>
+    <a class="btn alt" href="#budgets">Cancel</a>
+  </form>
+</div>
+</section>
+
+<!-- EDIT BUDGET -->
+<section class="view" id="edit-budget">
+  <h1>Edit Budget</h1>
+  <div class="card"><form action="#budgets">
+    <label for="en">Budget name</label>
+    <input id="en" type="text" value="Shopping Trip">
+    <label for="ep">Purpose</label>
+    <select id="ep">
+      <option>Monthly expenses</option>
+      <option selected>Shopping</option>
+      <option>Groceries</option>
+      <option>Transport</option>
+      <option>School expenses</option>
+      <option>Personal allowance</option>
+    </select>
+    <div class="two">
+      <div>
+        <label for="et">Total amount (MWK)</label>
+        <input id="et" type="number" value="60000">
+      </div>
+      <div>
+        <label for="es">Start date</label>
+        <input id="es" type="date" value="2026-10-18">
+      </div>
+    </div>
+    <label for="eno">Notes</label>
+    <textarea id="eno" rows="3">Trip to town on Saturday.</textarea>
+    <p class="hint">Raising the total amount reopens an exhausted budget.</p>
+    <a class="btn" href="#budgets">Update Budget</a>
+    <a class="btn alt" href="#budgets">Cancel</a>
+  </form>
+</div>
+</section>
+
+<!-- BUDGET DETAILS -->
+<section class="view" id="budget-details">
+  <h1>Budget: Shopping Trip</h1>
+  <div class="warn"><strong>Budget exhausted (100%).</strong> Review or intentionally revise this budget before recording more spending.</div>
+  <div class="cards">
+    <div class="card">
+      <h3>Total</h3>
+      <p>MWK 60,000</p></div>
+    <div class="card">
+      <h3>Spent</h3>
+      <p>MWK 60,000</p>
+    </div>
+    <div class="card">
+      <h3>Remaining</h3>
+      <p>MWK 0</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="bar">
+      <div class="high" style="width:100%">
+      </div>
+    </div>
+    <p class="legend"><span><i class="low"></i>Under 50%</span><span><i class="l50"></i>50% warning</span><span><i class="l75"></i>75% warning</span><span><i class="l90"></i>90% critical</span><span><i class="high"></i>100% exhausted</span></p>
+    <a class="btn sm alt" href="#edit-budget">Revise budget</a></div>
+  <div class="card">
+    <h2>Planned Items <span class="hint">(intentions, not yet spent)</span></h2>
+    <div class="scroll">
+      <table>
+      <tr>
+        <th>Item</th>
+        <th>Estimated cost (MWK)</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>Shoes</td>
+        <td>25,000</td>
+        <td>
+          <a class="btn sm alt" href="#add-planned">Edit</a>
+          <a class="btn sm danger" href="#budget-details">Delete</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Bag</td>
+        <td>15,000</td>
+        <td>
+        <a class="btn sm alt" href="#add-planned">Edit</a>
+        <a class="btn sm danger" href="#budget-details">Delete</a>
+      </td>
+    </tr>
+      <tr>
+        <td>Shirt</td>
+        <td>12,000</td>
+        <td><a class="btn sm alt" href="#add-planned">Edit</a>
+          <a class="btn sm danger" href="#budget-details">Delete</a>
+        </td></tr>
+      <tr><td>Phone case</td><td>8,000</td><td><a class="btn sm alt" href="#add-planned">Edit</a><a class="btn sm danger" href="#budget-details">Delete</a></td></tr>
+    </table></div>
+    <a class="btn" href="#add-planned">+ Add Planned Item</a>
+  </div>
+  <div class="card">
+    <h2>Actual Expenses <span class="hint">(money really spent)</span></h2>
+    <div class="scroll"><table>
+      <tr><th>Date</th><th>Description</th><th>Amount (MWK)</th><th>Actions</th></tr>
+      <tr><td>2026-10-20</td><td>Shoes</td><td>25,000</td><td><a class="btn sm alt" href="expenses.html#edit-expense">Edit</a><a class="btn sm danger" href="#budget-details">Delete</a></td></tr>
+      <tr><td>2026-10-20</td><td>Bag</td><td>14,000</td><td><a class="btn sm alt" href="expenses.html#edit-expense">Edit</a><a class="btn sm danger" href="#budget-details">Delete</a></td></tr>
+      <tr><td>2026-10-21</td><td>Shirt</td><td>12,000</td><td><a class="btn sm alt" href="expenses.html#edit-expense">Edit</a><a class="btn sm danger" href="#budget-details">Delete</a></td></tr>
+      <tr><td>2026-10-21</td><td>Lunch</td><td>9,000</td><td><a class="btn sm alt" href="expenses.html#edit-expense">Edit</a><a class="btn sm danger" href="#budget-details">Delete</a></td></tr>
+    </table></div>
+    <a class="btn" href="expenses.html#add-expense">+ Record Expense</a>
+  </div>
+</section>
+
+<!-- ADD PLANNED ITEM -->
+<section class="view" id="add-planned">
+  <h1>Add Planned Item</h1>
+  <div class="card"><form action="#budget-details">
+    <label for="pb">Budget</label><select id="pb"><option>Shopping Trip</option><option>Groceries</option><option>Transport</option><option>School Expenses</option></select>
+    <label for="pi">Item name</label><input id="pi" type="text" placeholder="e.g. Notebook">
+    <label for="pc">Estimated cost (MWK)</label><input id="pc" type="number" min="0" placeholder="5000">
+    <p class="hint">A planned item does not reduce your balance until you record an expense.</p>
+    <a class="btn" href="#budget-details">Save Item</a><a class="btn alt" href="#budget-details">Cancel</a>
+  </form></div>
+</section>
+
+
+
+</main>
+<footer>&copy; 2026 Smart Budget Tracker – Web Programming Group Project (HTML and CSS prototype)</footer>
+</body>
+</html>

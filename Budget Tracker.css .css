@@ -1,0 +1,364 @@
+
+/* 1. Theme variables and default (light) color scheme */
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #222222;
+  --muted: #666666;
+  --blue: #0b3d91;
+  --line: #dddddd;
+  --hover: #eef2fa;
+  --green: #2e9e4f;
+  --orange: #f5a623;
+  --red: #d9381e;
+  --warn: #fff3e0;
+
+  color-scheme: light;
+}
+
+
+/* 2. Global layout and box sizing */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 1rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* 3. Header, brand and navigation */
+header {
+  background: var(--blue);
+  color: #ffffff;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.brand img {
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 2px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 4. Main content and hash-based page navigation */
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+/* Hide each prototype page unless its matching URL hash is active. */
+.view {
+  display: none;
+  scroll-margin-top: 90px;
+}
+
+.view:target {
+  display: block;
+}
+
+/* Show the dashboard when the page opens without a section hash.
+   :has() is supported by current versions of major browsers. */
+main:not(:has(.view:target)) #dashboard {
+  display: block;
+}
+
+main:not(:has(.view:target)) #budgets,
+main:not(:has(.view:target)) #login,
+main:not(:has(.view:target)) #add-expense {
+  display: block;
+}
+
+/* 5. Headings and content cards */
+h1 {
+  color: var(--blue);
+  margin-top: 0;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  margin-bottom: 18px;
+}
+
+.cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cards .card {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.cards p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 6px 0 0;
+}
+
+/* 6. Form labels and controls */
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 1rem;
+  background: var(--card);
+  color: var(--text);
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+/* Two-column form rows become one column on smaller screens. */
+.two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+}
+
+/* 7. Reusable buttons (the HTML currently uses anchor links as buttons) */
+.btn {
+  display: inline-block;
+  margin: 18px 8px 0 0;
+  padding: 10px 20px;
+  background: var(--blue);
+  color: #ffffff;
+  border: 0;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  filter: brightness(1.12);
+}
+
+.btn.sitha {
+  margin: 0 4px 0 0;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  background: orange;
+}
+
+.btn.chotsa {
+  margin: 0 4px 0 0;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  background: var(--red);
+}
+
+.btn.wona{
+  margin: 0 4px 0 0;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  background: green;
+
+}
+
+
+/* 8. Tables: retain a readable minimum width and allow horizontal scrolling
+   through the .scroll wrapper used in the HTML. */
+.seseleka {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  min-width: 560px;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+th {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+tr:hover td {
+  background: var(--hover);
+}
+
+/* 9. Budget progress bars and their status colors */
+.bar {
+  background: var(--line);
+  border-radius: 10px;
+  height: 16px;
+  overflow: hidden;
+  margin: 6px 0 14px;
+}
+
+.bar div {
+  height: 100%;
+}
+
+.low {
+  background: var(--green);
+}
+
+.l50 {
+  background: #f2c200;
+}
+
+.l75 {
+  background: var(--orange);
+}
+
+.l90 {
+  background: #e8590c;
+}
+
+.high {
+  background: var(--red);
+}
+
+/* Legend shown below the budget progress bar. */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+.legend i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: -1px;
+}
+
+/* 10. Status messages and supporting text */
+.ex {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.warn {
+  background: var(--warn);
+  border-left: 5px solid var(--orange);
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* 11. Footer and responsive adjustments */
+footer {
+  text-align: center;
+  padding: 20px 20px calc(20px + env(safe-area-inset-bottom, 0px));
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .two {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav a {
+    margin-right: 0;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

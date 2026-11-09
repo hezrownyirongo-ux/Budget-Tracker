@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Budget Tracker</title>
+  <link rel="stylesheet" href="Budget Tracker.css .css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="dashboard.html#dashboard">Dashboard</a>
+      <a href="budget.html#budgets">Budgets</a>
+      <a href="budget.html#add-budget">New Budget</a>
+      <a href="expenses.html#add-expense">Add Expense</a>
+      <a href="Login.html#login">Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="view" id="add-expense">
+      <h1>Record Expense</h1>
+      <div class="card">
+        <form action="budget.html#budget-details">
+          <label for="xb">Budget</label>
+          <select id="xb">
+            <option>Groceries</option>
+            <option>School Expenses</option>
+            <option>Transport</option>
+            <option>Shopping Trip (exhausted)</option>
+          </select>
+          <label for="xd">Description</label>
+          <input id="xd" type="text" placeholder="e.g. Bus fare">
+          <div class="two">
+            <div>
+              <label for="xa">Amount (MWK)</label>
+              <input id="xa" type="number" min="0" placeholder="3000">
+            </div>
+            <div>
+              <label for="xt">Date</label>
+              <input id="xt" type="date">
+            </div>
+          </div>
+          <a class="btn" href="budget.html#budget-details">Save Expense</a>
+          <a class="btn alt" href="budget.html#budget-details">Cancel</a>
+        </form>
+      </div>
+    </section>
+
+    <section class="view" id="edit-expense">
+      <h1>Edit Expense</h1>
+      <div class="card">
+        <form action="budget.html#budget-details">
+          <label for="yb">Budget</label>
+          <select id="yb">
+            <option selected>Shopping Trip</option>
+            <option>Groceries</option>
+            <option>Transport</option>
+          </select>
+          <label for="yd">Description</label>
+          <input id="yd" type="text" value="Bag">
+          <div class="two">
+            <div>
+              <label for="ya">Amount (MWK)</label>
+              <input id="ya" type="number" value="14000">
+            </div>
+            <div>
+              <label for="yt">Date</label>
+              <input id="yt" type="date" value="2026-10-20">
+            </div>
+          </div>
+          <a class="btn" href="budget.html#budget-details">Update Expense</a>
+          <a class="btn alt" href="budget.html#budget-details">Cancel</a>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>&copy; 2026 Smart Budget Tracker – Web Programming Group Project (HTML and CSS prototype)</footer>
+</body>
+</html>
